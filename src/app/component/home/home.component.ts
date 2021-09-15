@@ -14,12 +14,14 @@ export class HomeComponent implements OnInit {
   public text: string;
   public countryText: string;
 
-  constructor( private fb: FormBuilder, private src: CountriesService) {
+  constructor( private fb: FormBuilder, private countries: CountriesService) {
     
       this.createForm();
+    
    }
 
   ngOnInit(): void {
+    this.getCountry();
   }
 
   createForm() {
@@ -30,13 +32,10 @@ export class HomeComponent implements OnInit {
       currency: [""],
       region: [""]
     })
-    /* console.log(this.formComponent) */
   }
 
   getCountry() {
-    this.src.getCountries().subscribe(res=>{
-      console.log(res[0])
-    })
+    this.countries.getCountries();
   }
 
   onChange(value) {

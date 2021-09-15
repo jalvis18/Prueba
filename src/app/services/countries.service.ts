@@ -8,17 +8,28 @@ import { Observable } from 'rxjs';
 })
 export class CountriesService {
 
-  private serverUrl: string = "https://restcountries.com/v3"
+  private serverUrl: string = "https://restcountries.eu/rest/v2/all";
 
   constructor(private http: HttpClient) {
    }
 
+   //toda la info de los paises
    getCountries(){
-    return this.http.get('https://restcountries.com/v3' + 'all');
+    console.log('Viene del servicio')
+    return this.http.get(this.serverUrl).subscribe( countrynames =>{
+      console.log(countrynames);
+    });
+  }
+
+  //Obtener solo en nombre
+  getByNAme (name: string): Observable<Response>{
+    console.log('desde el servidor');
+    return this.http.get<Response>(this.serverUrl+'name'+name);
+    
   }
 
   //obtener todos los Paises
-  findAll() :Observable<Response>{
+  /* findAll() :Observable<Response>{
     return this.http.get<Response>(this.serverUrl+'all')
   }
 
@@ -27,8 +38,6 @@ export class CountriesService {
     return this.http.get<Response>(this.serverUrl+'alpha'+code)
   }
 
-  getByNAme (name: string): Observable<Response>{
-    return this.http.get<Response>(this.serverUrl+'name'+name)
-  }
-
+  
+ */
 }
