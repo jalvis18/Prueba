@@ -19,9 +19,9 @@
             <label for="exampleFormControlInput1" class="form-label">Currency</label>
             <select class="form-select" aria-label="Default select example" formControlName="currency">
                 <option selected>Open this select menu</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
+                <option value="1">COP</option>
+                <option value="2">USD</option>
+                <option value="3">YEN</option>
             </select>
         </div>
         <div class="col-md-3">
@@ -36,12 +36,13 @@
             </select>
         </div>
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-            <button class="btn btn-primary me-md-2" type="button" (click)="onChange(text)">Buscar</button>
+            <button class="btn btn-primary me-md-2" type="button">Buscar</button>
         </div>
     </form>
     <table class="table content">
         <thead>
             <tr>
+                <th scope="col">Paises</th>
                 <th scope="col">Region</th>
                 <th scope="col">Subregion</th>
                 <th scope="col">Languages</th>
@@ -49,33 +50,21 @@
                 <th scope="col">Flags</th>
             </tr>
         </thead>
-        <tbody>
+        <!-- se muestra la información -->
+        <tbody *ngFor="let pais of country">
             <tr>
-                <th scope="row"></th>
-                <th scope="row"></th>
-                <th scope="row"></th>
-                <th scope="row"></th>
-                <th scope="row"></th>
-            <tr>
-                <th scope="row"></th>
-                <th scope="row"></th>
-                <th scope="row"></th>
-                <th scope="row"></th>
-                <th scope="row"></th>
+                <td scope="row">{{pais.name}}</td>
+                <td scope="row">{{pais.region}}</td>
+                <td scope="row">{{pais.subregion}}</td>
+                <td scope="row">{{pais.languages}} </td>
+                <td scope="row">{{pais.capital}}</td>
+                <td scope="row">{{pais.flag}}</td>
             </tr>
             <tr>
-                <th scope="row"></th>
-                <th scope="row"></th>
-                <th scope="row"></th>
-                <th scope="row"></th>
-                <th scope="row"></th>
             </tr>
             <tr>
-                <th scope="row"></th>
-                <th scope="row"></th>
-                <th scope="row"></th>
-                <th scope="row"></th>
-                <th scope="row"></th>
+            </tr>
+            <tr>
             </tr>
         </tbody>
     </table>

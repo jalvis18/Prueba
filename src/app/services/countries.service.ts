@@ -16,8 +16,8 @@ export class CountriesService {
    //toda la info de los paises
    getCountries(){
     console.log('Viene del servicio')
-    return this.http.get(this.serverUrl).subscribe( countrynames =>{
-      console.log(countrynames);
+    return this.http.get(this.serverUrl).subscribe( country =>{
+      console.log(country);
     });
   }
 
